@@ -1,10 +1,7 @@
-PROJECT=the_project
+include Makefile.project
+-include .config
 
-GENERATED_EXECUTABLES=bin/demo
-
-GENERATED_SOURCES=
-
-EXECUTABLES=$(GENERATED_EXECUTABLES)
+EXECUTABLES=$(GENERATED_EXECUTABLES) $(SCRIPTS)
 
 all: build metrics
 
