@@ -19,3 +19,14 @@ the project.
 
 Ada source files should be kept under "src/".
 
+
+Included tests
+--------------
+
+The repository comes with two ready-to-use test cases:
+
+1) 'cyclomatic_complexity' - reports excessive cyclomatic complexities in the
+   project sources.
+
+2) 'unused_units' - warns about units which aren't compiled.
+
