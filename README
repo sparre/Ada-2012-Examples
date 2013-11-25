@@ -1,7 +1,9 @@
 Build and Test Setup
 ====================
 
-This is my build and test "framework".
+This is my build and test "framework".  It represents a generalised version of
+my (currently) preferred arrangement of the building and testing of an Ada
+project.
 
 "Makefile", "ada_2012.gpr" and "tests/" are intended to be reused as-is.
 
