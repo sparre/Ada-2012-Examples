@@ -19,8 +19,7 @@ abstract project Ada_2012 is
              "-gnaty3abcdefhiklmnoOprstux", --  Style checks
              "-gnatwe",                     --  Treat warnings as errors
              "-gnat2012",                   --  Use Ada 2012
-             "-Wall",
-             "-O2",                         --  Optimise (level 2/3)
-             "-g");
+             "-Wall",                       --  All GCC warnings
+             "-O2");                        --  Optimise (level 2/3)
    end Compiler;
 end Ada_2012;
