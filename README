@@ -1,0 +1,21 @@
+Build and Test Setup
+====================
+
+This is my build and test "framework".
+
+"Makefile", "ada_2012.gpr" and "tests/" are intended to be reused as-is.
+
+"Makefile.project" is intended for fixed, project specific parameters.
+
+"Makefile.project_rules" is intended for project specific build rules.
+
+Configuration parameters should be written (as "make" variables) to ".config",
+which will be included by "Makefile".
+
+".hgignore" is intended as a starting point for a project specific ignore file.
+
+"the_project.gpr" is intended as a starting point for a GNAT project file for
+the project.
+
+Ada source files should be kept under "src/".
+
