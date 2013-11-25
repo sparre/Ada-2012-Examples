@@ -80,8 +80,12 @@ cut -f1 execessive_cases \
 #-----------------------------------------------------------------------------
 #--  Clean up:
 
-if [ ! -s execessive_cases ]; then
+if [ ! -s execessive_cases -o ${counter} = 0 ]; then
    rm -f execessive_cases
+fi
+
+if [ ! -s generated_source_files ]; then
+   rm -f generated_source_files
 fi
 
 #-----------------------------------------------------------------------------
