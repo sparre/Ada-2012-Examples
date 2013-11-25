@@ -16,7 +16,7 @@ install: build test
 	install -t ${HOME}/bin/ $(EXECUTABLES)
 
 clean:
-	gnatclean -P $(PROJECT)
+	gnatclean -P $(PROJECT) || true
 	find . -name "*~" -type f -print0 | xargs -0 -r /bin/rm
 	rm -f **/*.o **/*.ali
 	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -f $(GENERATED_SOURCES); fi
@@ -25,6 +25,7 @@ clean:
 
 distclean: clean
 	rm -f $(GENERATED_EXECUTABLES)
+	rm -f obj/*.ad[sb].metrix
 	rmdir bin || true
 	rmdir obj || true
 
@@ -34,3 +35,4 @@ fix-whitespace:
 metrics:
 	@gnat metric -P $(PROJECT)
 
+-include Makefile.project_rules
