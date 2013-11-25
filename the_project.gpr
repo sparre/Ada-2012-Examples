@@ -1,3 +1,5 @@
+--  O mighty Emacs, please use -*- Ada -*- mode in this lowly file.
+
 with "ada_2012";
 
 project The_Project is
@@ -5,6 +7,7 @@ project The_Project is
 
    for Main use ("demo");
 
+   package Builder  renames Ada_2012.Builder;
    package Compiler renames Ada_2012.Compiler;
 
    for Object_Dir use "obj/";
