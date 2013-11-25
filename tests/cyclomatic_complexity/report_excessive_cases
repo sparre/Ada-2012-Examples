@@ -37,10 +37,22 @@ egrep ' body | cyclomatic complexity ' ../../obj/*.metrix \
   > execessive_cases
 
 #-----------------------------------------------------------------------------
+#--  Make sure list of generated source files exists:
+
+if [ ! -r generated_source_files ]; then
+   touch generated_source_files
+fi
+
+#-----------------------------------------------------------------------------
+#--  Check excessive cases:
 
 local counter=0
 
 cut -f1 execessive_cases \
+  | LANG=C sort -u \
+  | diff <(LANG=C sort -u generated_source_files) - \
+  | grep '^> ' \
+  | cut -c3 \
   | while read unit; do
        source="$(find ../../src -name "${unit}")"
 
