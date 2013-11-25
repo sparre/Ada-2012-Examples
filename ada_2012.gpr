@@ -1,5 +1,12 @@
+--  O mighty Emacs, please use -*- Ada -*- mode in this lowly file.
+
 abstract project Ada_2012 is
    for Source_Dirs use ();
+
+   package Builder is
+      for Default_Switches ("Ada")
+        use ("-m");
+   end Builder;
 
    package Compiler is
       for Default_Switches ("Ada")
