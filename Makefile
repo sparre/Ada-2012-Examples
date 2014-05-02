@@ -35,3 +35,5 @@ metrics:
 	@gnat metric -P $(PROJECT)
 
 -include Makefile.project_rules
+
+.PHONY: all build test install clean distclean fix-whitespace metrics
