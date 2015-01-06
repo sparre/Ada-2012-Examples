@@ -16,7 +16,7 @@ install: build test
 	install -t ${HOME}/bin/ $(EXECUTABLES)
 
 clean:
-	find . \( -name "*~" -o -name "*.o" -o -name "*.ali" \) -type f -print0 | xargs -0 -r /bin/rm
+	find . \( -name "*~" -o -name "*.bak" -o -name "*.o" -o -name "*.ali" \) -type f -print0 | xargs -0 -r /bin/rm
 	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -rf $(GENERATED_SOURCES); fi
 	rmdir bin || true
 	rmdir obj || true
