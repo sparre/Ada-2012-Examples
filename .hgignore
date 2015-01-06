@@ -20,6 +20,7 @@ tests/*/*.output
 obj/*.ad[sb].metrix
 
 # Generated source files:
+src/mercurial.ads
 
 # Generated object files:
 obj/*.ali
