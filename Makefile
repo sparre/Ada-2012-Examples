@@ -8,6 +8,8 @@ GENERATED_SOURCES += $(HG_STATE_SOURCE)
 
 EXECUTABLES=$(GENERATED_EXECUTABLES) $(SCRIPTS)
 
+PREFIX ?= $(HOME)
+
 all: build metrics
 
 build: fix-whitespace $(GENERATED_SOURCES)
@@ -18,7 +20,7 @@ test: build metrics
 	@./tests/run
 
 install: build test
-	install -t ${HOME}/bin/ $(EXECUTABLES)
+	install -D -t $(DESTDIR)$(PREFIX)/bin/ $(EXECUTABLES)
 
 clean:
 	find . \( -name "*~" -o -name "*.bak" -o -name "*.o" -o -name "*.ali" \) -type f -print0 | xargs -0 -r /bin/rm
