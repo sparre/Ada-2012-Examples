@@ -1,36 +1,23 @@
-Build and Test Setup [1]
-========================
+Ada 2012 Examples [1]
+=====================
 
-This is my build and test "framework".  It represents a generalised version of
-my (currently) preferred arrangement of the building and testing of an Ada
-project.
-
-"Makefile", "ada_2012.gpr" and "tests/" are intended to be reused as-is.
-
-"Makefile.project" is intended for fixed, project specific parameters.
-
-"Makefile.project_rules" is intended for project specific build rules.
-
-Configuration parameters should be written (as "make" variables) to ".config",
-which will be included by "Makefile".
-
-".hgignore" is intended as a starting point for a project specific ignore file.
-
-"the_project.gpr" is intended as a starting point for a GNAT project file for
-the project.
-
-Ada source files should be kept under "src/".
+A collection of examples of how Ada 2012 can be used.
 
 
-Included tests
---------------
+Building
+--------
 
-The repository comes with two ready-to-use test cases:
+```
+make
+```
 
-1) 'cyclomatic_complexity' - reports excessive cyclomatic complexities in the
-   project sources.
 
-2) 'unused_units' - warns about units which aren't compiled.
+Testing
+-------
+
+```
+make test
+```
 
 
 Links
@@ -41,7 +28,7 @@ starting point.  You can also take a look at my other source text
 repositories [3] or my web site [4].
 
 [1] Source text repository:
-    http://repositories.jacob-sparre.dk/reference-build-and-test-setup
+    http://repositories.jacob-sparre.dk/ada-2012-examples
 [2] Free Ada Tools and Libraries:
     http://www.adaic.org/ada-resources/tools-libraries/
 [3] My repositories on Bitbucket:
