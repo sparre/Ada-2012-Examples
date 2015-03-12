@@ -1,6 +1,7 @@
 PROJECT=ada_2012_examples
 
-GENERATED_EXECUTABLES=bin/demo
+GENERATED_EXECUTABLES=bin/demo \
+                      bin/use_power_of_2
 
 GENERATED_SOURCES=
 
