@@ -28,6 +28,7 @@ obj/*.o
 
 # Generated executables:
 bin/demo
+bin/primes
 bin/subtypes_of_dimensioned_types
 bin/use_power_of_2
 
