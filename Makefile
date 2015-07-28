@@ -23,12 +23,13 @@ install: build test
 	install -D -t $(DESTDIR)$(PREFIX)/bin/ $(EXECUTABLES)
 
 clean:
-	find . \( -name "*~" -o -name "*.bak" -o -name "*.o" -o -name "*.ali" \) -type f -print0 | xargs -0 -r /bin/rm
-	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -rf $(GENERATED_SOURCES); fi
+	find . \( -name "*~" -o -name "*.bak" -o -name "*.o" -o -name "*.ali" -o -name "*.adt" \) -type f -print0 | xargs -0 -r /bin/rm
+	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -f $(GENERATED_SOURCES) 2>/dev/null || true; fi
 	rmdir bin || true
 	rmdir obj || true
 
 distclean: clean
+	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -rf $(GENERATED_SOURCES); fi
 	gnatclean -P $(PROJECT) || true
 	rm -f $(GENERATED_EXECUTABLES)
 	rm -f obj/*.ad[sb].metrix
