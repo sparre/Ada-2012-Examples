@@ -6,6 +6,7 @@ project Ada_2012_Examples is
    for Source_Dirs use ("src/");
 
    for Main use ("array_subtypes",
+                 "case_coverage",
                  "demo",
                  "primes",
                  "subtypes_of_dimensioned_types",

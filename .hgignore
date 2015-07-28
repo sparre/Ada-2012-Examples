@@ -30,6 +30,7 @@ obj/*.ali
 obj/*.o
 
 # Generated executables:
+bin/case_coverage
 bin/demo
 bin/primes
 bin/subtypes_of_dimensioned_types
