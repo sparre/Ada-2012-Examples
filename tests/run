@@ -45,9 +45,9 @@ for file in $(find ./ -mindepth 2 -type f -perm +100 | sort); do
    echo ${run_number}/${number_of_runs}$'\tRunning '${file}' for at most '${allowed_time_in_seconds}' seconds...' 1>&2
 
    tr '\n' '\0' < ${file}.arguments \
-     | xargs --null ./${file} 1>${file}.output \
-                              2>${file}.errors \
-                              &
+     | xargs -0 ./${file} 1>${file}.output \
+                          2>${file}.errors \
+                          &
    pid=$!
 
    (
