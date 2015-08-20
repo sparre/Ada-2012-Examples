@@ -37,7 +37,7 @@ distclean: clean
 	rmdir obj || true
 
 fix-whitespace:
-	@find src tests -name '*.ad?' | xargs --no-run-if-empty egrep -l '	| $$' | grep -v '^b[~]' | xargs --no-run-if-empty perl -i -lpe 's|	|        |g; s| +$$||g'
+	@find src tests -name '*.ad?' | xargs -r egrep -l '	| $$' | grep -v '^b[~]' | xargs -r perl -i -lpe 's|	|        |g; s| +$$||g'
 
 metrics:
 	@gnat metric -P $(PROJECT)
