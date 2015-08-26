@@ -34,11 +34,9 @@ find ./ -mindepth 2 -type f -perm +100 | sort > "${job_list}"
 #-----------------------------------------------------------------------------
 #--  Run jobs:
 
-echo -n "Running tests..."
+echo -n "Running tests...   "
 
 parallel ./run_job < "${job_list}" 2>run.status
-
-echo "   Done."
 
 #-----------------------------------------------------------------------------
 #--  Collect results:
