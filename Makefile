@@ -23,13 +23,15 @@ install: build test
 	install -D -t $(DESTDIR)$(PREFIX)/bin/ $(EXECUTABLES)
 
 clean:
-	find . \( -name "*~" -o -name "*.bak" -o -name "*.o" -o -name "*.ali" -o -name "*.adt" \) -type f -print0 | xargs -0 -r /bin/rm
+	find . \( -name "*~" -o -name "*.bak" -o -name "*.o" -o -name "*.ali" -o -name "*.adt" \) -type f -print0 | xargs -0 /bin/rm || true
 	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -f $(GENERATED_SOURCES) 2>/dev/null || true; fi
+	if [ ! -z "$(TEST_OUTPUT)"       ]; then rm -f $(TEST_OUTPUT)       2>/dev/null || true; fi
 	rmdir bin || true
 	rmdir obj || true
 
 distclean: clean
 	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -rf $(GENERATED_SOURCES); fi
+	if [ ! -z "$(TEST_OUTPUT)" ];       then rm -rf $(TEST_OUTPUT);       fi
 	gnatclean -P $(PROJECT) || true
 	rm -f $(GENERATED_EXECUTABLES)
 	rm -f obj/*.ad[sb].metrix
@@ -37,7 +39,7 @@ distclean: clean
 	rmdir obj || true
 
 fix-whitespace:
-	@find src tests -name '*.ad?' | xargs -r egrep -l '	| $$' | grep -v '^b[~]' | xargs -r perl -i -lpe 's|	|        |g; s| +$$||g'
+	@find src tests -name '*.ad?' | xargs egrep -l '	| $$' | grep -v '^b[~]' | xargs perl -i -lpe 's|	|        |g; s| +$$||g' 2>/dev/null || true
 
 metrics:
 	@gnat metric -P $(PROJECT)
