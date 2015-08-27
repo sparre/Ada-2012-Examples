@@ -19,12 +19,16 @@ tests/*/*.output
 # Output from source text metric analysis:
 obj/*.ad[sb].metrix
 
+# Output from ASIS based tools:
+*.adt
+
 # Generated source files:
 src/mercurial.ads
 
 # Generated object files:
 obj/*.ali
 obj/*.o
+obj/*.dg
 
 # Generated executables:
 bin/demo
