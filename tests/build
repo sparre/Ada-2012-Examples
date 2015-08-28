@@ -59,7 +59,7 @@ failed=$(cat ${failed_list} | wc -l)
 
 if [ -s ${failed_list} ]; then
    echo "${failed} out of ${total} builds failed:"
-   uniq < ${failed_list} | sed 's/^./   tests/;'
+   uniq < ${failed_list} | sed 's/^./   gnatmake -p -P tests/;'
 else
    echo "All ${total} builds succeeded."
 fi
