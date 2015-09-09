@@ -16,6 +16,7 @@ build: fix-whitespace $(GENERATED_SOURCES)
 	gnatmake -p -P $(PROJECT)
 
 test: build metrics
+	@mkdir -p tests/results
 	@./tests/build
 	@./tests/run
 
