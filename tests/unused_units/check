@@ -12,36 +12,38 @@ fi
 #-----------------------------------------------------------------------------
 #--  Temporary storage:
 
-generated_units=$(mktemp)
-source_units=$(mktemp)
+compiled_source_files=$(mktemp)
+project_source_files=$(mktemp)
 
 #-----------------------------------------------------------------------------
-#--  List generated files:
+#--  List compiled source files:
 
-\ls ../../obj/*.{ali,o} \
-  | perl -lpe 's!^.+/([^/]+)[.](ali|o)$!$1!;' \
+grep --no-filename '^D' ../../obj/*.ali \
+  | cut -c3- \
+  | cut -f1 \
+  | cut -d' ' -f1 \
   | LANG=C sort -u \
-  > ${generated_units}
+  > ${compiled_source_files}
 
 #-----------------------------------------------------------------------------
-#--  List source files:
+#--  List project source files:
 
 \ls ../../src/**/*.ad[sb] \
-  | perl -lpe 's!^.+/([^/]+)[.](ads|adb)$!$1!;' \
+  | perl -lpe 's!^.+/([^/]+[.](ads|adb))$!$1!;' \
   | LANG=C sort -u \
-  > ${source_units}
+  > ${project_source_files}
 
 #-----------------------------------------------------------------------------
 
-if diff ${generated_units} ${source_units} | grep '^> ' 1>/dev/null; then
+if diff ${compiled_source_files} ${project_source_files} | grep '^> ' 1>/dev/null; then
    echo "Unused units:"
-   diff ${generated_units} ${source_units} | grep '^> '
+   diff ${compiled_source_files} ${project_source_files} | grep '^> '
    result=1
 else
    result=0
 fi
 
-rm -f ${generated_units} ${source_units}
+rm -f ${compiled_source_files} ${project_source_files}
 
 exit ${result}
 
