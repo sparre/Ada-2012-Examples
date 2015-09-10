@@ -21,6 +21,7 @@ test: build metrics
 	@./tests/run
 
 install: build test
+	@strip $(GENERATED_EXECUTABLES)
 	install -D -t $(DESTDIR)$(PREFIX)/bin/ $(EXECUTABLES)
 
 clean:
