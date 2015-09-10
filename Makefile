@@ -16,10 +16,12 @@ build: fix-whitespace $(GENERATED_SOURCES)
 	gnatmake -p -P $(PROJECT)
 
 test: build metrics
+	@mkdir -p tests/results
 	@./tests/build
 	@./tests/run
 
 install: build test
+	@strip $(GENERATED_EXECUTABLES)
 	install -D -t $(DESTDIR)$(PREFIX)/bin/ $(EXECUTABLES)
 
 clean:
