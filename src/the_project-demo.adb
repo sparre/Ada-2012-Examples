@@ -1,8 +1,8 @@
 with Ada.Text_IO;
 
-with Mercurial;
+with The_Project.Mercurial;
 
-procedure Demo is
+procedure The_Project.Demo is
 begin
    Ada.Text_IO.Put_Line ("Revision: " & Mercurial.Revision);
-end Demo;
+end The_Project.Demo;

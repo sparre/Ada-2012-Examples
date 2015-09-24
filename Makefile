@@ -1,7 +1,9 @@
 include Makefile.project
 -include .config
 
-HG_STATE_SOURCE    = src/mercurial.ads
+LC_PROJECT = $(shell echo -n "${PROJECT}" | tr '[:upper:].' '[:lower:]-')
+
+HG_STATE_SOURCE    = src/$(LC_PROJECT)-mercurial.ads
 HG_MODIFIER        = `test $$(hg status | wc -c) -gt 0 && echo "plus changes" || echo "as committed"`
 HG_REVISION        = `hg tip --template '{node}' 2>/dev/null || echo N/A`
 GENERATED_SOURCES += $(HG_STATE_SOURCE)
@@ -15,7 +17,7 @@ PROCESSORS ?= `(test -f /proc/cpuinfo && grep -c ^processor /proc/cpuinfo) || ec
 all: build metrics
 
 build: fix-whitespace $(GENERATED_SOURCES)
-	gnatmake -j$(PROCESSORS) -p -P $(PROJECT)
+	gnatmake -j$(PROCESSORS) -p -P $(LC_PROJECT)
 
 test: build metrics
 	@mkdir -p tests/results
@@ -36,7 +38,7 @@ clean:
 distclean: clean
 	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -rf $(GENERATED_SOURCES); fi
 	if [ ! -z "$(TEST_OUTPUT)" ];       then rm -rf $(TEST_OUTPUT);       fi
-	gnatclean -P $(PROJECT) || true
+	gnatclean -P $(LC_PROJECT) || true
 	rm -f $(GENERATED_EXECUTABLES)
 	rm -f obj/*.ad[sb].metrix
 	rmdir bin || true
@@ -46,13 +48,13 @@ fix-whitespace:
 	@find src tests -name '*.ad?' | xargs egrep -l '	| $$' | grep -v '^b[~]' | xargs perl -i -lpe 's|	|        |g; s| +$$||g' 2>/dev/null || true
 
 metrics:
-	@gnat metric -P $(PROJECT)
+	@gnat metric -j$(PROCESSORS) -P $(LC_PROJECT)
 
 $(HG_STATE_SOURCE): Makefile .hg/hgrc .hg/dirstate
-	@echo 'package Mercurial is'                                 >  $(HG_STATE_SOURCE)
+	@echo 'package '$(PROJECT)'.Mercurial is'                    >  $(HG_STATE_SOURCE)
 	@echo '   Revision : constant String (1 .. 53) :='           >> $(HG_STATE_SOURCE)
 	@echo '                "'$(HG_REVISION)' '$(HG_MODIFIER)'";' >> $(HG_STATE_SOURCE)
-	@echo 'end Mercurial;'                                       >> $(HG_STATE_SOURCE)
+	@echo 'end '$(PROJECT)'.Mercurial;'                          >> $(HG_STATE_SOURCE)
 
 -include Makefile.project_rules
 
