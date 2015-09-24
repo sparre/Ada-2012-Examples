@@ -10,10 +10,12 @@ EXECUTABLES=$(GENERATED_EXECUTABLES) $(SCRIPTS)
 
 PREFIX ?= $(HOME)
 
+PROCESSORS ?= `(test -f /proc/cpuinfo && grep -c ^processor /proc/cpuinfo) || echo 1`
+
 all: build metrics
 
 build: fix-whitespace $(GENERATED_SOURCES)
-	gnatmake -p -P $(PROJECT)
+	gnatmake -j$(PROCESSORS) -p -P $(PROJECT)
 
 test: build metrics
 	@mkdir -p tests/results
