@@ -1,6 +1,6 @@
-PROJECT=the_project
+PROJECT=The_Project
 
-GENERATED_EXECUTABLES=bin/demo
+GENERATED_EXECUTABLES=bin/the_project-demo
 
 GENERATED_SOURCES=
 

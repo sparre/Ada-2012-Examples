@@ -23,12 +23,12 @@ obj/*.ad[sb].metrix
 *.adt
 
 # Generated source files:
-src/mercurial.ads
+src/the_project-mercurial.ads
 
 # Generated object files:
 obj/*.ali
 obj/*.o
 
 # Generated executables:
-bin/demo
+bin/the_project-demo
 
