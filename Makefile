@@ -16,7 +16,7 @@ PROCESSORS ?= `(test -f /proc/cpuinfo && grep -c ^processor /proc/cpuinfo) || ec
 
 all: build metrics
 
-build: fix-whitespace $(GENERATED_SOURCES)
+build: build-depends fix-whitespace $(GENERATED_SOURCES)
 	gnatmake -j$(PROCESSORS) -p -P $(LC_PROJECT)
 
 test: build metrics
@@ -44,6 +44,9 @@ distclean: clean
 	rmdir bin || true
 	rmdir obj || true
 
+build-depends:
+	@for command in $$(cat .build-depends.commands) ; do if [ ! -x "$$(which $${command})" ]; then echo "'$${command}' not found."; exit 1; fi; done
+
 fix-whitespace:
 	@find src tests -name '*.ad?' | xargs egrep -l '	| $$' | grep -v '^b[~]' | xargs perl -i -lpe 's|	|        |g; s| +$$||g' 2>/dev/null || true
 
@@ -58,4 +61,4 @@ $(HG_STATE_SOURCE): Makefile .hg/hgrc .hg/dirstate
 
 -include Makefile.project_rules
 
-.PHONY: all build test install clean distclean fix-whitespace metrics
+.PHONY: all build test install clean distclean build-depends fix-whitespace metrics
