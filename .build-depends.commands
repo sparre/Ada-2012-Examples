@@ -3,3 +3,4 @@ parallel
 gnat
 gnatmake
 gnatmetric
+hg
