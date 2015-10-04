@@ -28,7 +28,7 @@ all: build metrics
 build: build-depends fix-whitespace $(GENERATED_SOURCES)
 	gnatmake -j$(PROCESSORS) -p -P $(LC_PROJECT)
 
-test: build metrics
+test: build metrics $(EXECUTABLES)
 	@mkdir -p tests/results
 	@./tests/build
 	@./tests/run
