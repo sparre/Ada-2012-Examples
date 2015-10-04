@@ -5,9 +5,7 @@ GENERATED_EXECUTABLES=bin/$(LC_PROJECT)-demo \
                       bin/subtypes_of_dimensioned_types \
                       bin/use_power_of_2
 
-GENERATED_SOURCES=$(PROJECT_ROOT_SOURCE) \
-                  $(HG_STATE_SOURCE) \
-                  $(PROJECT_DEMO_SOURCE)
+GENERATED_SOURCES=
 
 SCRIPTS=
 

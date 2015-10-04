@@ -4,6 +4,7 @@ include Makefile.project
 LC_PROJECT = $(shell echo -n "${PROJECT}" | tr '[:upper:].' '[:lower:]-')
 
 PROJECT_ROOT_SOURCE = src/$(LC_PROJECT).ads
+GENERATED_SOURCES  += $(PROJECT_ROOT_SOURCE)
 
 HG_STATE_SOURCE     = src/$(LC_PROJECT)-mercurial.ads
 HG_MODIFIER         = `test $$(hg status | wc -c) -gt 0 && echo "plus changes" || echo "as committed"`
@@ -11,6 +12,7 @@ HG_REVISION         = `hg tip --template '{node}' 2>/dev/null || echo N/A`
 GENERATED_SOURCES  += $(HG_STATE_SOURCE)
 
 PROJECT_DEMO_SOURCE = src/$(LC_PROJECT)-demo.adb
+GENERATED_SOURCES  += $(PROJECT_DEMO_SOURCE)
 
 EXECUTABLES=$(GENERATED_EXECUTABLES) $(SCRIPTS)
 

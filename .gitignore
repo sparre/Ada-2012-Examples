@@ -5,6 +5,7 @@ syntax: glob
 .\#*
 \#*\#
 .*.swp
+*.bak
 
 # Output from tests:
 tests/build.status
