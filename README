@@ -4,6 +4,15 @@ Ada 2012 Examples [1]
 A collection of examples of how Ada 2012 can be used.
 
 
+Build dependencies
+------------------
+
++ Zsh
+* GNU Parallel
+* GNAT (including the `gnatmetric` tool)
+* Mercurial (hg)
+
+
 Building
 --------
 
