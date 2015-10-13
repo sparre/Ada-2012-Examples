@@ -34,8 +34,8 @@ test: build metrics $(EXECUTABLES)
 	@./tests/run
 
 install: build test
-	@strip $(GENERATED_EXECUTABLES)
-	install -D -t $(DESTDIR)$(PREFIX)/bin/ $(EXECUTABLES)
+	@if [ ! -z "$(GENERATED_EXECUTABLES)" ]; then strip $(GENERATED_EXECUTABLES) ; fi
+	@if [ ! -z "$(EXECUTABLES)"           ]; then install -D -t $(DESTDIR)$(PREFIX)/bin/ $(EXECUTABLES) ; fi
 
 clean:
 	find . \( -name "*~" -o -name "*.bak" -o -name "*.o" -o -name "*.ali" -o -name "*.adt" \) -type f -print0 | xargs -0 /bin/rm || true
