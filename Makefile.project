@@ -2,6 +2,7 @@ PROJECT=ada_2012_examples
 
 GENERATED_EXECUTABLES=bin/$(LC_PROJECT)-demo \
                       bin/case_coverage \
+                      bin/codici_a_confronto \
                       bin/subtypes_of_dimensioned_types \
                       bin/use_power_of_2
 

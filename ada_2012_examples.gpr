@@ -8,6 +8,7 @@ project Ada_2012_Examples is
    for Main use ("ada_2012_examples-demo",
                  "array_subtypes",
                  "case_coverage",
+                 "codici_a_confronto",
                  "primes",
                  "subtypes_of_dimensioned_types",
                  "use_power_of_2");
