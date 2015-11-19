@@ -4,6 +4,7 @@ GENERATED_EXECUTABLES=bin/$(LC_PROJECT)-demo \
                       bin/case_coverage \
                       bin/chained_calls \
                       bin/codici_a_confronto \
+                      bin/container_indexing \
                       bin/subtypes_of_dimensioned_types \
                       bin/use_power_of_2
 

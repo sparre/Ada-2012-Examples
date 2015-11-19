@@ -38,6 +38,7 @@ bin/ada_2012_examples-demo
 bin/case_coverage
 bin/chained_calls
 bin/codici_a_confronto
+bin/container_indexing
 bin/primes
 bin/subtypes_of_dimensioned_types
 bin/use_power_of_2
