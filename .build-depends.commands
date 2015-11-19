@@ -1,0 +1,6 @@
+/bin/zsh
+parallel
+gnat
+gnatmake
+gnatmetric
+hg
