@@ -24,9 +24,9 @@ obj/*.ad[sb].metrix
 *.adt
 
 # Generated source files:
-src/ada_2012_examples-demo.adb
-src/ada_2012_examples-mercurial.ads
 src/ada_2012_examples.ads
+src/ada_2012_examples-mercurial.ads
+src/ada_2012_examples-demo.adb
 
 # Generated object files:
 obj/*.ali
@@ -37,6 +37,7 @@ obj/*.dg
 bin/ada_2012_examples-demo
 bin/case_coverage
 bin/chained_calls
+bin/codici_a_confronto
 bin/primes
 bin/subtypes_of_dimensioned_types
 bin/use_power_of_2

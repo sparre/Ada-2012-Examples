@@ -9,6 +9,7 @@ project Ada_2012_Examples is
                  "array_subtypes",
                  "case_coverage",
                  "chained_calls",
+                 "codici_a_confronto",
                  "primes",
                  "subtypes_of_dimensioned_types",
                  "use_power_of_2");
