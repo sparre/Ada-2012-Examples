@@ -1,11 +1,11 @@
-PROJECT=ada_2012_examples
+PROJECT=Ada_2012_Examples
 
 GENERATED_EXECUTABLES=bin/case_coverage \
-                      bin/demo \
+                      bin/ada_2012_examples-demo \
                       bin/subtypes_of_dimensioned_types \
                       bin/use_power_of_2
 
-GENERATED_SOURCES=
+GENERATED_SOURCES=src/ada_2012_examples-mercurial.ads
 
 SCRIPTS=
 

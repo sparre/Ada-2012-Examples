@@ -7,7 +7,6 @@ project Ada_2012_Examples is
 
    for Main use ("array_subtypes",
                  "case_coverage",
-                 "demo",
                  "primes",
                  "subtypes_of_dimensioned_types",
                  "use_power_of_2");
