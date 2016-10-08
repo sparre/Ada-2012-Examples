@@ -35,11 +35,14 @@ obj/*.dg
 
 # Generated executables:
 bin/ada_2012_examples-demo
+bin/attribute_demo
 bin/case_coverage
 bin/chained_calls
 bin/codici_a_confronto
 bin/container_indexing
 bin/primes
+bin/set_with_modular_representation_demo
 bin/subtypes_of_dimensioned_types
+bin/test_example_1
 bin/use_power_of_2
 

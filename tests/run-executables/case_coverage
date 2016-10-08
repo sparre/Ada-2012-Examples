@@ -1,0 +1,6 @@
+#! /bin/bash
+cd "$(dirname "$0")" || exit 1
+
+for month in Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ; do
+        ../../bin/case_coverage $month
+done

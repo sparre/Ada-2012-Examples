@@ -7,12 +7,17 @@ project Ada_2012_Examples is
 
    for Main use ("ada_2012_examples-demo",
                  "array_subtypes",
+                 "attribute_demo",
+                 "big_endian_integer_buffer",
                  "case_coverage",
                  "chained_calls",
                  "codici_a_confronto",
                  "container_indexing",
+                 "mixed_enumeration_and_integer",
                  "primes",
+                 "set_with_modular_representation_demo",
                  "subtypes_of_dimensioned_types",
+                 "test_example_1",
                  "use_power_of_2");
 
    package Builder  renames Ada_2012.Builder;
