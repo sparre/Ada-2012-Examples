@@ -15,6 +15,7 @@ project Ada_2012_Examples is
                  "container_indexing",
                  "mixed_enumeration_and_integer",
                  "primes",
+                 "producer_consumer_v1",
                  "set_with_modular_representation_demo",
                  "settings",
                  "settings_v2",
