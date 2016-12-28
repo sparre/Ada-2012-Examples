@@ -16,6 +16,8 @@ project Ada_2012_Examples is
                  "mixed_enumeration_and_integer",
                  "primes",
                  "set_with_modular_representation_demo",
+                 "settings",
+                 "settings_v2",
                  "subtypes_of_dimensioned_types",
                  "test_example_1",
                  "use_power_of_2");
