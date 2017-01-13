@@ -11,6 +11,7 @@ project Ada_2012_Examples is
                  "big_endian_integer_buffer",
                  "case_coverage",
                  "chained_calls",
+                 "classes-example",
                  "codici_a_confronto",
                  "container_indexing",
                  "mixed_enumeration_and_integer",
