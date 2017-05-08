@@ -45,4 +45,6 @@ bin/set_with_modular_representation_demo
 bin/subtypes_of_dimensioned_types
 bin/test_example_1
 bin/use_power_of_2
+bin/classes-example
+bin/producer_consumer_v1
 
