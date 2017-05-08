@@ -18,15 +18,13 @@ EXECUTABLES=$(GENERATED_EXECUTABLES) $(SCRIPTS)
 
 PREFIX ?= $(HOME)
 
-PROCESSORS ?= `(test -f /proc/cpuinfo && grep -c ^processor /proc/cpuinfo) || echo 1`
-
 REPOSITORY_STATE  = .hg/dirstate
 REPOSITORY_CONFIG = .hg/hgrc
 
 all: build
 
 build: build-depends fix-whitespace $(GENERATED_SOURCES)
-	gnatmake -j$(PROCESSORS) -p -P $(LC_PROJECT)
+	gnatmake -j0 -p -P $(LC_PROJECT)
 
 test: build $(EXECUTABLES)
 	@mkdir -p tests/results
