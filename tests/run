@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 #-----------------------------------------------------------------------------
 #                                                                            #
 #                     Copyright (C) 2012-2013, AdaHeads K/S                  #
@@ -24,6 +24,13 @@ export default_allowed_time_in_seconds=5
 #--  Work from the 'tests/' directory:
 
 cd "$(dirname "$0")" || exit -1
+
+#-----------------------------------------------------------------------------
+#--  Work-around if 'parallel' is missing:
+
+if [ ! -x "$(which parallel)" ]; then
+   alias parallel=xargs
+fi
 
 #-----------------------------------------------------------------------------
 #--  Collect jobs:
