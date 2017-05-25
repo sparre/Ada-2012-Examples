@@ -9,6 +9,5 @@ pipelines:
   default:
     - step:
         script:
-          - sudo ln -s /bin/true /usr/bin/hg
           - make build
           - make test
