@@ -1,5 +1,5 @@
 /bin/bash
 gnat
 gnatmake
-gnatmetric
 hg
+xargs
