@@ -26,6 +26,13 @@ export default_allowed_time_in_seconds=5
 cd "$(dirname "$0")" || exit -1
 
 #-----------------------------------------------------------------------------
+#--  Work-around if 'parallel' is missing:
+
+if [ ! -x "$(which parallel)" ]; then
+   alias parallel=xargs
+fi
+
+#-----------------------------------------------------------------------------
 #--  Collect jobs:
 
 job_list=$(mktemp)

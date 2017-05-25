@@ -1,5 +1,4 @@
 /bin/bash
-parallel
 gnat
 gnatmake
 gnatmetric
