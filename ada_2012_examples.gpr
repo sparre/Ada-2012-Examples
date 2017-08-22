@@ -23,7 +23,8 @@ project Ada_2012_Examples is
                  "subtypes_of_dimensioned_types.adb",
                  "tasking_barriers_and_terminate.adb",
                  "test_example_1.adb",
-                 "use_power_of_2.adb");
+                 "use_power_of_2.adb",
+                 "variant_records.ads");
 
    package Builder  renames Ada_2012.Builder;
    package Compiler renames Ada_2012.Compiler;
