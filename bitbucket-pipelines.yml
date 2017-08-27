@@ -9,6 +9,6 @@ pipelines:
   default:
     - step:
         script:
-          - apt-get install mercurial
+          - apt-get install --quiet=2 mercurial
           - make build
           - make test
