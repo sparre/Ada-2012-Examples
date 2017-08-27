@@ -41,6 +41,7 @@ bin/chained_calls
 bin/classes-example
 bin/codici_a_confronto
 bin/container_indexing
+bin/lang
 bin/primes
 bin/producer_consumer_v1
 bin/set_with_modular_representation_demo
