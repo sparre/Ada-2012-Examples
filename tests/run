@@ -23,7 +23,7 @@ export default_allowed_time_in_seconds=5
 #-----------------------------------------------------------------------------
 #--  Work from the 'tests/' directory:
 
-cd "$(dirname "$0")" || exit -1
+test_root="$(cd "$(dirname "$0")" && pwd)"
 
 #-----------------------------------------------------------------------------
 #--  Work-around if 'parallel' is missing:
@@ -35,46 +35,48 @@ fi
 #-----------------------------------------------------------------------------
 #--  Collect jobs:
 
-job_list=$(mktemp)
-find ./ -mindepth 2 -type f -perm +100 | sort > "${job_list}"
+job_list="$(mktemp)"
+find "${test_root}" -mindepth 2 -type f -perm +100 | sort > "${job_list}"
 
 #-----------------------------------------------------------------------------
 #--  Run jobs:
 
 echo -n "Running tests...   "
 
-parallel ./run_job < "${job_list}" 2>run.status
+parallel "${test_root}/run_job" < "${job_list}" 2>"${test_root}/run.status"
 
 #-----------------------------------------------------------------------------
 #--  Collect results:
 
-failed_list=$(mktemp)
-succeeded_list=$(mktemp)
+failed_list="$(mktemp)"
+succeeded_list="$(mktemp)"
 
 while read job ; do
-   if grep -q succeeded ${job}.exit_code ; then
-      echo "${job}"                           >> ${succeeded_list}
+   if [ ! -r "${job}.exit_code" ]; then
+      echo "${job} (no exit_code found)"        >> "${failed_list}"
+   elif grep -q succeeded "${job}.exit_code" ; then
+      echo "${job}"                             >> "${succeeded_list}"
    else
-      echo "${job} ($(cat ${job}.exit_code))" >> ${failed_list}
+      echo "${job} ($(cat "${job}.exit_code"))" >> "${failed_list}"
    fi
 
-   rm -f ${job}.exit_code
+   rm -f "${job}.exit_code"
 done < "${job_list}"
 
-total=$(cat ${succeeded_list} ${failed_list} | wc -l)
-failed=$(cat ${failed_list} | wc -l)
+total=$(cat "${succeeded_list}" "${failed_list}" | wc -l)
+failed=$(cat "${failed_list}" | wc -l)
 
 #-----------------------------------------------------------------------------
 #--  Report results (and clean up):
 
-if [ -s ${failed_list} ]; then
+if [ -s "${failed_list}" ]; then
    echo "${failed} out of ${total} tests failed:"
-   uniq < ${failed_list} | sed 's|^.|   tests|'
+   uniq < "${failed_list}" | sed 's|^|   |'
 else
    echo "All ${total} tests succeeded."
 fi
 
-rm -f ${job_list} ${failed_list} ${succeeded_list}
+rm -f "${job_list}" "${failed_list}" "${succeeded_list}"
 
 exit ${failed}
 
