@@ -14,6 +14,7 @@ project Ada_2012_Examples is
                  "classes-example.adb",
                  "codici_a_confronto.adb",
                  "container_indexing.adb",
+                 "lang.adb",
                  "mixed_enumeration_and_integer.adb",
                  "primes.adb",
                  "producer_consumer_v1.adb",
