@@ -9,5 +9,6 @@ pipelines:
   default:
     - step:
         script:
+          - apt-get install --quiet=2 mercurial parallel
           - make build
           - make test

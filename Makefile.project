@@ -2,7 +2,9 @@ PROJECT=The_Project
 
 GENERATED_EXECUTABLES=bin/$(LC_PROJECT)-demo
 
-GENERATED_SOURCES=
+GENERATED_SOURCES=src/$(LC_PROJECT).ads \
+                  src/$(LC_PROJECT)-mercurial.ads \
+                  src/$(LC_PROJECT)-demo.adb
 
 SCRIPTS=
 

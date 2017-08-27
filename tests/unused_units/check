@@ -28,7 +28,7 @@ grep --no-filename '^D' ../../obj/*.ali \
 #-----------------------------------------------------------------------------
 #--  List project source files:
 
-\ls ../../src/**/*.ad[sb] \
+find ../../src -type f -name '*.ad[sb]' \
   | perl -lpe 's!^.+/([^/]+[.](ads|adb))$!$1!;' \
   | LANG=C sort -u \
   > ${project_source_files}

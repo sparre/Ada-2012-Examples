@@ -25,12 +25,9 @@ Ada source files should be kept under "src/".
 Included tests
 --------------
 
-The repository comes with two ready-to-use test cases:
+The repository comes with a ready-to-use test case:
 
-1) 'cyclomatic_complexity' - reports excessive cyclomatic complexities in the
-   project sources.
-
-2) 'unused_units' - warns about units which aren't compiled.
+1) 'unused_units' - warns about units which aren't compiled.
 
 
 Links
@@ -42,10 +39,13 @@ repositories [3] or my web site [4].
 
 [1] Source text repository:
     http://repositories.jacob-sparre.dk/reference-build-and-test-setup
+
 [2] Free Ada Tools and Libraries:
     http://www.adaic.org/ada-resources/tools-libraries/
+
 [3] My repositories on Bitbucket:
     http://repositories.jacob-sparre.dk/
+
 [4] My web site:
     http://www.jacob-sparre.dk/
 
