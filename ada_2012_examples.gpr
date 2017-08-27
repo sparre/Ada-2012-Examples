@@ -19,6 +19,7 @@ project Ada_2012_Examples is
                  "primes.adb",
                  "producer_consumer_v1.adb",
                  "set_with_modular_representation_demo.adb",
+                 "sets_and_subtypes.adb",
                  "settings.ads",
                  "settings_v2.ads",
                  "subtypes_of_dimensioned_types.adb",

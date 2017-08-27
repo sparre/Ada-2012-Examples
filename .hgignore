@@ -45,6 +45,7 @@ bin/lang
 bin/primes
 bin/producer_consumer_v1
 bin/set_with_modular_representation_demo
+bin/sets_and_subtypes
 bin/subtypes_of_dimensioned_types
 bin/tasking_barriers_and_terminate
 bin/test_example_1
