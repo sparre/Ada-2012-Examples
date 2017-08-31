@@ -51,6 +51,8 @@ echo 'Running '${job}' for at most '${allowed_time_in_seconds}' seconds...' 1>&2
 #-----------------------------------------------------------------------------
 #--  Start job:
 
+cd "$(dirname "$0")"
+
 tr '\n' '\0' < ${job}.arguments \
   | xargs -0 ${job} 1>${job}.output \
                     2>${job}.errors \
