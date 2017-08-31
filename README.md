@@ -34,6 +34,7 @@ Build dependencies
 ------------------
 
 + Bash
++ GNU Make
 + GNU Parallel (or `xargs`)
 + GNAT
 + Mercurial (`hg`)
