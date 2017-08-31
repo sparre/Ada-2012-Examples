@@ -47,7 +47,6 @@ distclean: clean
 	if [ ! -z "$(TEST_OUTPUT)" ];       then rm -rf $(TEST_OUTPUT);       fi
 	gnatclean -P $(LC_PROJECT) || true
 	rm -f $(GENERATED_EXECUTABLES)
-	rm -f obj/*.ad[sb].metrix
 	rmdir bin || true
 	rmdir obj || true
 
