@@ -70,6 +70,22 @@ failed=$(cat "${failed_list}" | wc -l)
 #--  Report results (and clean up):
 
 if [ -s "${failed_list}" ]; then
+   while read job message ; do
+      if [ -r "${job}.output" ]; then
+         echo "--------------------------------------------------------------"
+         echo "Output from '${job}':"
+         cat "${job}.output"
+         echo "--------------------------------------------------------------"
+      fi
+
+      if [ -r "${job}.errors" ]; then
+         echo "--------------------------------------------------------------"
+         echo "Error report from '${job}':"
+         cat "${job}.errors"
+         echo "--------------------------------------------------------------"
+      fi
+   done < "${failed_list}"
+
    echo "${failed} out of ${total} tests failed:"
    uniq < "${failed_list}" | sed 's|^|   |'
 else
