@@ -11,6 +11,7 @@ Build dependencies
 + GNU Parallel (or `xargs`)
 + GNAT
 + Mercurial (`hg`)
++ Perl
 
 
 Testing
