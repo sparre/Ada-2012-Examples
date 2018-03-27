@@ -17,9 +17,6 @@ tests/*/*.output
 
 # Test output to clean up:
 
-# Output from source text metric analysis:
-obj/*.ad[sb].metrix
-
 # Output from ASIS based tools:
 *.adt
 
@@ -29,8 +26,7 @@ src/the_project-mercurial.ads
 src/the_project-demo.adb
 
 # Generated object files:
-obj/*.ali
-obj/*.o
+obj
 
 # Generated executables:
 bin/the_project-demo
