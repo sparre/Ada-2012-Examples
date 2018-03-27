@@ -24,7 +24,7 @@ REPOSITORY_CONFIG = .hg/hgrc
 all: build
 
 build: build-depends fix-whitespace $(GENERATED_SOURCES)
-	gnatmake -j0 -p -P $(LC_PROJECT)
+	gprbuild -j0 -p -P $(LC_PROJECT)
 
 test: build $(EXECUTABLES)
 	@mkdir -p tests/results
@@ -45,7 +45,7 @@ clean:
 distclean: clean
 	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -rf $(GENERATED_SOURCES); fi
 	if [ ! -z "$(TEST_OUTPUT)" ];       then rm -rf $(TEST_OUTPUT);       fi
-	gnatclean -P $(LC_PROJECT) || true
+	gprclean -P $(LC_PROJECT) || true
 	rm -f $(GENERATED_EXECUTABLES)
 	rm -f obj/*.ad[sb].metrix
 	rmdir bin || true
