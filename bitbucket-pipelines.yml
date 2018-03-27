@@ -9,6 +9,6 @@ pipelines:
   default:
     - step:
         script:
-          - apt-get install --quiet=2 mercurial parallel
+          - apt-get install --quiet=2 mercurial parallel gprbuild
           - make build
           - make test
