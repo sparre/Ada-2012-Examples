@@ -10,5 +10,5 @@ pipelines:
     - step:
         script:
           - apt-get install --quiet=2 mercurial parallel gprbuild
-          - make build
-          - make test
+          - OS_VERSION=unix make build
+          - OS_VERSION=unix make test
