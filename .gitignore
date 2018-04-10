@@ -17,9 +17,6 @@ tests/*/*.output
 
 # Test output to clean up:
 
-# Output from source text metric analysis:
-obj/*.ad[sb].metrix
-
 # Output from ASIS based tools:
 *.adt
 
@@ -29,9 +26,7 @@ src/ada_2012_examples-mercurial.ads
 src/ada_2012_examples-demo.adb
 
 # Generated object files:
-obj/*.ali
-obj/*.o
-obj/*.dg
+obj/
 
 # Generated executables:
 bin/ada_2012_examples-demo
@@ -50,6 +45,7 @@ bin/sets_and_subtypes
 bin/subtypes_of_dimensioned_types
 bin/tasking_barriers_and_terminate
 bin/test_example_1
+bin/use_big_integers
 bin/use_power_of_2
 bin/using_variant_records
 

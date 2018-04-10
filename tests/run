@@ -36,7 +36,7 @@ fi
 #--  Collect jobs:
 
 job_list="$(mktemp)"
-find "${test_root}" -mindepth 2 -type f -perm +100 | sort > "${job_list}"
+find "${test_root}" -mindepth 2 -type f -perm -0100 | sort > "${job_list}"
 
 #-----------------------------------------------------------------------------
 #--  Run jobs:

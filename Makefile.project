@@ -7,14 +7,16 @@ GENERATED_EXECUTABLES=bin/$(LC_PROJECT)-demo \
                       bin/classes-example \
                       bin/codici_a_confronto \
                       bin/container_indexing \
+                      bin/disallow \
                       bin/lang \
                       bin/primes \
                       bin/producer_consumer_v1 \
-                      bin/sets_and_subtypes \
                       bin/set_with_modular_representation_demo \
+                      bin/sets_and_subtypes \
                       bin/subtypes_of_dimensioned_types \
                       bin/tasking_barriers_and_terminate \
                       bin/test_example_1 \
+                      bin/use_big_integers \
                       bin/use_power_of_2 \
                       bin/using_variant_records
 
