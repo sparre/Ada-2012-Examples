@@ -11,9 +11,6 @@ HG_MODIFIER         = `test $$(hg status | wc -c || echo 0) -gt 0 && echo "plus 
 HG_REVISION         = `hg tip --template '{node}' 2>/dev/null || echo N/A_____________________________________`
 GENERATED_SOURCES  += $(HG_STATE_SOURCE)
 
-PROJECT_DEMO_SOURCE = src/$(LC_PROJECT)-demo.adb
-GENERATED_SOURCES  += $(PROJECT_DEMO_SOURCE)
-
 EXECUTABLES=$(GENERATED_EXECUTABLES) $(SCRIPTS)
 
 PREFIX ?= $(HOME)
@@ -24,7 +21,7 @@ REPOSITORY_CONFIG = .hg/hgrc
 all: build
 
 build: build-depends fix-whitespace $(GENERATED_SOURCES)
-	gnatmake -j0 -p -P $(LC_PROJECT)
+	gprbuild -j0 -p -P $(LC_PROJECT)
 
 test: build $(EXECUTABLES)
 	@mkdir -p tests/results
@@ -45,7 +42,7 @@ clean:
 distclean: clean
 	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -rf $(GENERATED_SOURCES); fi
 	if [ ! -z "$(TEST_OUTPUT)" ];       then rm -rf $(TEST_OUTPUT);       fi
-	gnatclean -P $(LC_PROJECT) || true
+	gprclean -P $(LC_PROJECT) || true
 	rm -f $(GENERATED_EXECUTABLES)
 	rmdir bin || true
 	rmdir obj || true
@@ -76,17 +73,6 @@ $(HG_STATE_SOURCE): Makefile $(REPOSITORY_CONFIG) $(REPOSITORY_STATE) $(PROJECT_
 	@echo '   Revision : constant String (1 .. 53) :='           >> $(HG_STATE_SOURCE)
 	@echo '                "'$(HG_REVISION)' '$(HG_MODIFIER)'";' >> $(HG_STATE_SOURCE)
 	@echo 'end '$(PROJECT)'.Mercurial;'                          >> $(HG_STATE_SOURCE)
-
-$(PROJECT_DEMO_SOURCE): Makefile $(PROJECT_ROOT_SOURCE) $(HG_STATE_SOURCE)
-	@mkdir -p src
-	@echo 'with Ada.Text_IO;'                                            >  $(PROJECT_DEMO_SOURCE)
-	@echo                                                                >> $(PROJECT_DEMO_SOURCE)
-	@echo 'with '$(PROJECT)'.Mercurial;'                                 >> $(PROJECT_DEMO_SOURCE)
-	@echo                                                                >> $(PROJECT_DEMO_SOURCE)
-	@echo 'procedure '$(PROJECT)'.Demo is'                               >> $(PROJECT_DEMO_SOURCE)
-	@echo 'begin'                                                        >> $(PROJECT_DEMO_SOURCE)
-	@echo '   Ada.Text_IO.Put_Line ("Revision: " & Mercurial.Revision);' >> $(PROJECT_DEMO_SOURCE)
-	@echo 'end '$(PROJECT)'.Demo;'                                       >> $(PROJECT_DEMO_SOURCE)
 
 -include Makefile.project_rules
 

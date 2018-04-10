@@ -1,4 +1,6 @@
 /bin/bash
-gnat
+gnatls
 gnatmake
+gprbuild
+gprclean
 xargs

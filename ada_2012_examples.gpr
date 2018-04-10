@@ -6,9 +6,7 @@ project Ada_2012_Examples is
    for Source_Dirs use ("src/");
 
    for Main use ("ada_2012_examples-demo.adb",
-                 "array_subtypes.ads",
                  "attribute_demo.adb",
-                 "big_endian_integer_buffer.adb",
                  "case_coverage.adb",
                  "chained_calls.adb",
                  "classes-example.adb",
@@ -16,13 +14,10 @@ project Ada_2012_Examples is
                  "container_indexing.adb",
                  "disallow.adb",
                  "lang.adb",
-                 "mixed_enumeration_and_integer.adb",
                  "primes.adb",
                  "producer_consumer_v1.adb",
                  "set_with_modular_representation_demo.adb",
                  "sets_and_subtypes.adb",
-                 "settings.ads",
-                 "settings_v2.ads",
                  "subtypes_of_dimensioned_types.adb",
                  "tasking_barriers_and_terminate.adb",
                  "test_example_1.adb",

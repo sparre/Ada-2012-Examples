@@ -10,6 +10,7 @@ Build dependencies
 + Bash
 + GNU Parallel (or `xargs`)
 + GNAT
++ Gprbuild
 + Mercurial (`hg`)
 + Perl
 

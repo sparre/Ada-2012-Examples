@@ -23,7 +23,6 @@ tests/*/*.output
 # Generated source files:
 src/ada_2012_examples.ads
 src/ada_2012_examples-mercurial.ads
-src/ada_2012_examples-demo.adb
 
 # Generated object files:
 obj/
