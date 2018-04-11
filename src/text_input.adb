@@ -20,7 +20,7 @@ procedure Text_Input is
       return Result : Page_Count do
          Ada.Text_IO.Put (Message);
          Page_Count_Text_IO.Get (Result);
-         if Ada.Text_IO.Get_Line'Length > 0 then
+         if Ada.Text_IO.Get_Line /= "" then
             raise Constraint_Error
               with "Page count followed by extra characters.";
          end if;
