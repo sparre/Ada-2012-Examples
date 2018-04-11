@@ -21,6 +21,7 @@ project Ada_2012_Examples is
                  "subtypes_of_dimensioned_types.adb",
                  "tasking_barriers_and_terminate.adb",
                  "test_example_1.adb",
+                 "text_input.adb",
                  "use_big_integers.adb",
                  "use_power_of_2.adb",
                  "using_variant_records.adb");

@@ -16,6 +16,7 @@ GENERATED_EXECUTABLES=bin/$(LC_PROJECT)-demo \
                       bin/subtypes_of_dimensioned_types \
                       bin/tasking_barriers_and_terminate \
                       bin/test_example_1 \
+                      bin/text_input \
                       bin/use_big_integers \
                       bin/use_power_of_2 \
                       bin/using_variant_records
