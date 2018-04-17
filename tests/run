@@ -28,8 +28,13 @@ test_root="$(cd "$(dirname "$0")" && pwd)"
 #-----------------------------------------------------------------------------
 #--  Work-around if 'parallel' is missing:
 
-if [ ! -x "$(which parallel)" ]; then
-   alias parallel=xargs
+if [ -x "$(which parallel)" ]; then
+   parallel="$(which parallel)"
+elif [ -x "$(which xargs)" ]; then
+   parallel="$(which xargs)"
+else
+   echo "Neither 'parallel' nor 'xargs' available." 1>&2
+   exit 202
 fi
 
 #-----------------------------------------------------------------------------
@@ -43,7 +48,7 @@ find "${test_root}" -mindepth 2 -type f -perm -0100 | sort > "${job_list}"
 
 echo -n "Running tests...   "
 
-parallel "${test_root}/run_job" < "${job_list}" 2>"${test_root}/run.status"
+"${parallel}" -n1 "${test_root}/run_job" < "${job_list}" 2>"${test_root}/run.status"
 
 #-----------------------------------------------------------------------------
 #--  Collect results:
