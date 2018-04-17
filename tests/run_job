@@ -23,6 +23,10 @@ job="$1"
 if [ ! -x "${job}" ]; then
    echo "'${job}' is not executable."
    exit 201
+elif [ $# -gt 1 ]; then
+   echo "Too many command line arguments:"
+   echo "   $*"
+   exit 203
 fi
 
 #-----------------------------------------------------------------------------
