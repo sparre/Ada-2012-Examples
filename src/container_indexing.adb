@@ -7,7 +7,6 @@ procedure Container_Indexing is
      new Ada.Containers.Indefinite_Ordered_Maps
            (Key_Type     => Integer,
             Element_Type => String);
-   use all type Integer_String_Maps.Map;
    use Ada.Text_IO;
 
    Map : Integer_String_Maps.Map;
